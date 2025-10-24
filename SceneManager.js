@@ -93,6 +93,18 @@ export class SceneManager {
             scene.add(chair);
         });
 
+        // Objects
+        this.loader.load('models/living_room/couch.glb', (gltf) => {
+            const couch = gltf.scene;
+            couch.scale.set(1, 1, 1);
+            couch.rotateY(-Math.PI / 4);
+            couch.position.x = 5;
+            couch.position.y = -6;
+            couch.position.z = -3.8;
+            couch.userData = { healthEffect: 20, cooldown: 2000, onCooldown: false };
+            scene.add(couch);
+        });
+
         return scene;
     }
 
