@@ -4,7 +4,7 @@ import { SceneManager } from './SceneManager.js';
 class Game {
     constructor() {
         this.sceneManager = new SceneManager();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer();
         this.raycaster = new THREE.Raycaster();
         this.mouse = new THREE.Vector2();
