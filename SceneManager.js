@@ -29,8 +29,10 @@ export class SceneManager {
         // Objects
         this.loader.load('models/bedroom/bed.glb', (gltf) => {
             const bed = gltf.scene;
-            bed.scale.set(0.5, 0.5, 0.5);
-            bed.position.x = -2;
+            bed.scale.set(2, 2, 2);
+            bed.position.x = -3;
+            bed.position.y = -5;
+            bed.position.z = -2.8;
             bed.userData = { healthEffect: 20, cooldown: 5000, onCooldown: false };
             scene.add(bed);
         });
@@ -55,8 +57,10 @@ export class SceneManager {
         // Objects
         this.loader.load('models/kitchen/fridge.glb', (gltf) => {
             const fridge = gltf.scene;
-            fridge.scale.set(0.5, 0.5, 0.5);
-            fridge.position.x = 2;
+            fridge.scale.set(1.5, 1.5, 1.5);
+            fridge.position.x = -4;
+            fridge.position.y = -5;
+            fridge.position.z = -3.5;
             fridge.userData = { healthEffect: 10, cooldown: 3000, onCooldown: false };
             scene.add(fridge);
         });
@@ -81,8 +85,10 @@ export class SceneManager {
         // Objects
         this.loader.load('models/living_room/chair.glb', (gltf) => {
             const chair = gltf.scene;
-            chair.scale.set(0.5, 0.5, 0.5);
-            chair.position.x = 0;
+            chair.scale.set(2, 2, 2);
+            chair.position.x = -5;
+            chair.position.y = -6;
+            chair.position.z = -3.8;
             chair.userData = { healthEffect: 5, cooldown: 2000, onCooldown: false };
             scene.add(chair);
         });

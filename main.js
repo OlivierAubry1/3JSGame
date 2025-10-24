@@ -133,7 +133,7 @@ class Game {
         const scene = this.sceneManager.getScene();
         scene.children.forEach(child => {
             if (child.isGroup) { // Assuming loaded models are groups
-                child.rotation.y += 0.01;
+                child.rotation.y += 0;
             }
         });
 

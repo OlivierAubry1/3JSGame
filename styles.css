@@ -19,7 +19,7 @@ body {
 #health-bar {
     width: 100%;
     height: 100%;
-    background-color: #4caf50;
+    background-color: #af4c4c;
     border-radius: 8px;
     transition: width 0.5s ease-in-out;
 }
