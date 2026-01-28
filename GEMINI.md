@@ -137,7 +137,7 @@ Phase 1: Core Mechanics & Single Room
        * Add simple visual feedback for interactions (e.g., object 
          highlighting).
 
-  Phase 3: Multi-Room Navigation
+  Phase 3: Multi-Room Navigation (Completed)
    * Objective: Implement the full scope of the game world.        
    * Features:
        * Create the remaining room scenes (kitchen, living room,   
@@ -148,7 +148,7 @@ Phase 1: Core Mechanics & Single Room
          rooms.
        * Manage scene loading and unloading to conserve resources. 
 
-  Phase 4: Visual Polish & Asset Integration
+  Phase 4: Visual Polish & Asset Integration (Current)
    * Objective: Replace placeholder assets and define the game's   
      aesthetic.
    * Features:

@@ -11,11 +11,22 @@
       <div id="health-bar"></div>
     </div>
 
-    <div id="room-switcher">
-      <button id="bedroom-btn">Bedroom</button>
-      <button id="kitchen-btn">Kitchen</button>
-      <button id="living-room-btn">Living Room</button>
-    </div>  
+    <div id="ui-layer">
+      <button id="map-btn">Map</button>
+    </div>
+
+    <div id="map-modal" class="hidden">
+      <div class="map-content">
+        <h2>Select Room</h2>
+        <div class="room-grid">
+          <button class="room-btn" data-room="bedroom">Bedroom</button>
+          <button class="room-btn" data-room="kitchen">Kitchen</button>
+          <button class="room-btn" data-room="living_room">Living Room</button>
+          <button class="room-btn" data-room="bathroom">Bathroom</button>
+        </div>
+        <button id="close-map-btn">Close</button>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

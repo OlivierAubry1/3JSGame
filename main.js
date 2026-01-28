@@ -23,20 +23,36 @@ class Game {
         this.camera.position.z = 5;
 
         this.healthBar = document.getElementById('health-bar');
+        this.mapModal = document.getElementById('map-modal');
 
         window.addEventListener('resize', this.onWindowResize.bind(this), false);
-        window.addEventListener('click', this.onMouseClick.bind(this), false);
+        this.renderer.domElement.addEventListener('click', this.onMouseClick.bind(this), false);
 
-        document.getElementById('bedroom-btn').addEventListener('click', () => this.switchRoom('bedroom'));
-        document.getElementById('kitchen-btn').addEventListener('click', () => this.switchRoom('kitchen'));
-        document.getElementById('living-room-btn').addEventListener('click', () => this.switchRoom('living_room'));
+        document.getElementById('map-btn').addEventListener('click', () => this.toggleMap(true));
+        document.getElementById('close-map-btn').addEventListener('click', () => this.toggleMap(false));
+
+        document.querySelectorAll('.room-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const roomName = e.target.getAttribute('data-room');
+                this.switchRoom(roomName);
+            });
+        });
 
         this.animate();
         this.startHealthDecay();
     }
 
+    toggleMap(show) {
+        if (show) {
+            this.mapModal.classList.remove('hidden');
+        } else {
+            this.mapModal.classList.add('hidden');
+        }
+    }
+
     switchRoom(roomName) {
         this.sceneManager.setScene(roomName);
+        this.toggleMap(false);
     }
 
     onWindowResize() {
@@ -62,8 +78,22 @@ class Game {
                 this.increaseHealth(object.userData.healthEffect);
                 this.triggerCooldown(object);
                 this.triggerVisualFeedback(object);
+                this.showHealthPopup(object.userData.healthEffect, event.clientX, event.clientY);
             }
         }
+    }
+
+    showHealthPopup(amount, x, y) {
+        const popup = document.createElement('div');
+        popup.className = 'health-popup';
+        popup.innerText = `+${amount} HP`;
+        popup.style.left = `${x}px`;
+        popup.style.top = `${y}px`;
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+            popup.remove();
+        }, 1000);
     }
 
     triggerCooldown(object) {

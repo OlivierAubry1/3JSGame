@@ -9,6 +9,7 @@ export class SceneManager {
             'bedroom': this.createBedroom(),
             'kitchen': this.createKitchen(),
             'living_room': this.createLivingRoom(),
+            'bathroom': this.createBathroom(),
         };
         this.currentScene = this.scenes['bedroom'];
     }
@@ -112,6 +113,42 @@ export class SceneManager {
             couch.userData = { healthEffect: 20, cooldown: 2000, onCooldown: false };
             scene.add(couch);
         });
+
+        return scene;
+    }
+
+    createBathroom() {
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xe0ffff); // Light cyan
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+        directionalLight.position.set(10, 20, 0);
+        scene.add(directionalLight);
+
+        // Room
+        this.createRoom(scene, 8, 'textures/floor.jpg', 'textures/wall.jpg', 'textures/ceiling.jpg');
+
+        // Objects (Placeholders using primitives)
+        // Bathtub
+        const bathtub = new THREE.Mesh(
+            new THREE.BoxGeometry(2, 1, 4),
+            new THREE.MeshStandardMaterial({ color: 0xffffff })
+        );
+        bathtub.position.set(-2, -3.5, -2);
+        bathtub.userData = { healthEffect: 15, cooldown: 4000, onCooldown: false };
+        scene.add(bathtub);
+
+        // Toilet
+        const toilet = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.5, 0.5, 1, 32),
+            new THREE.MeshStandardMaterial({ color: 0xffffff })
+        );
+        toilet.position.set(2, -3.5, 2);
+        toilet.userData = { healthEffect: 5, cooldown: 2000, onCooldown: false };
+        scene.add(toilet);
 
         return scene;
     }
